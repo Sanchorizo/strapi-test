@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "annonces",
+  "info": {
+    "singularName": "annonce",
+    "pluralName": "annonces",
+    "displayName": "Annonce",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "titre": {
+      "type": "string"
+    },
+    "host": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::region.region",
+      "inversedBy": "annonces"
+    },
+    "bed": {
+      "type": "integer"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
